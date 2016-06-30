@@ -107,12 +107,12 @@
 }
 
 - (id)initFromHTMLFile:(NSString *)filename {
-    NSString *fullPath = [[[NSBundle bundleForClass:self.class] bundlePath] stringByAppendingPathComponent:filename];
+    NSString *fullPath = [[NSBundle mainBundle] stringByAppendingPathComponent:filename];
     return [self initFromHTMLData:[NSData dataWithContentsOfFile:fullPath]];
 }
 
 - (id)initFromHTMLFile:(NSString *)filename fileExtension:(NSString*)extension {
-    NSString *fullPath = [[NSBundle bundleForClass:[self class]] pathForResource:filename ofType:extension];
+    NSString *fullPath = [[NSBundle mainBundle] pathForResource:filename ofType:extension];
     return [self initFromHTMLData:[NSData dataWithContentsOfFile:fullPath]];
 }
 
